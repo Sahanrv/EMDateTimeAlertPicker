@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct DateTime {
+public struct DateTime {
     var date:Date
     var time:Date
 }
 
-enum DateFormat: String {
+public enum DateFormat: String {
     case FullDateTime_WithDash_24Hours_yMd = "yyyy-MM-dd HH:mm:ss"
     case FullDateTime_WithDash_24Hours_dMy = "dd-MM-yyyy HH:mm:ss"
     case FullDateTime_WithDash_24Hours_yMdS = "yyyy-MM-dd HH:mm:ss.S"
@@ -50,14 +50,14 @@ enum DateFormat: String {
 
 extension String {
     // Convert String to Date
-    func convertStringToDate(_ formatString: DateFormat) -> Date {
+    public func convertStringToDate(_ formatString: DateFormat) -> Date {
         let formatter = DateFormatter() // Create Time Formatter
         formatter.dateFormat = formatString.rawValue // Specify Format of Date to Parse
         let dateFromString:Date = formatter.date(from: self)! as Date // Parse into Date
         return dateFromString // Return Parsed Date
     }
     
-    func getDateTimeFromString(_ formatDateTimeString: DateFormat, _ formatDateString: DateFormat, _ formatTimeString: DateFormat) -> DateTime {
+    public func getDateTimeFromString(_ formatDateTimeString: DateFormat, _ formatDateString: DateFormat, _ formatTimeString: DateFormat) -> DateTime {
         let longDateTime:Date = self.convertStringToDate(formatDateTimeString) as Date
         
         let shortDateString:String = longDateTime.convertDateToString(formatDateString)
@@ -73,7 +73,7 @@ extension String {
 
 extension Date {
     // Convert Date to String
-    func convertDateToString(_ formatString: DateFormat) -> String {
+    public func convertDateToString(_ formatString: DateFormat) -> String {
         let formatter = DateFormatter() // Create Date Formatter
         formatter.dateFormat = formatString.rawValue // Specify Format of String to Parse
         let stringFromDate:String = formatter.string(from: self) as String  // Parse into String
@@ -81,7 +81,7 @@ extension Date {
     }
     
     // Manage display day
-    func manageDisplayDate() -> String {
+    public func manageDisplayDate() -> String {
         let calendar = Calendar.current
         if calendar.isDateInYesterday(self) {
             return "Yesterday"
