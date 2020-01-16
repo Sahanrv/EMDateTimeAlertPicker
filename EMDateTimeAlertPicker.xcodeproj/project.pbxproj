@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB179D0223CD8AD70013A842 /* EMDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB179D0123CD8AD70013A842 /* EMDateTime.swift */; };
+		FB4C902C23CFFF4600DE1763 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4C902B23CFFF4600DE1763 /* DateManager.swift */; };
 		FBE61EA523C733AB00C4DEBA /* EMDateTimeAlertPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE61E9B23C733AB00C4DEBA /* EMDateTimeAlertPicker.framework */; };
 		FBE61EAA23C733AB00C4DEBA /* EMDateTimeAlertPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE61EA923C733AB00C4DEBA /* EMDateTimeAlertPickerTests.swift */; };
 		FBE61EAC23C733AB00C4DEBA /* EMDateTimeAlertPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = FBE61E9E23C733AB00C4DEBA /* EMDateTimeAlertPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		FB179D0123CD8AD70013A842 /* EMDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMDateTime.swift; sourceTree = "<group>"; };
+		FB4C902B23CFFF4600DE1763 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		FBE61E9B23C733AB00C4DEBA /* EMDateTimeAlertPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EMDateTimeAlertPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE61E9E23C733AB00C4DEBA /* EMDateTimeAlertPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMDateTimeAlertPicker.h; sourceTree = "<group>"; };
 		FBE61E9F23C733AB00C4DEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		FBE61EB523C7346100C4DEBA /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FB4C902B23CFFF4600DE1763 /* DateManager.swift */,
 				FBE61EF423C73E6700C4DEBA /* EMDateTimeAlertPicker.swift */,
 				FB179D0123CD8AD70013A842 /* EMDateTime.swift */,
 			);
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB179D0223CD8AD70013A842 /* EMDateTime.swift in Sources */,
+				FB4C902C23CFFF4600DE1763 /* DateManager.swift in Sources */,
 				FBE61EF523C73E6700C4DEBA /* EMDateTimeAlertPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ import UIKit
 
 public class EMDateTimeAlertPicker: UIViewController {
     
+    public var topTitle : String! = ""
     public var selectedDate : Date!
     public var hour : Int!
     public var minuts: Int!
@@ -26,7 +27,7 @@ public class EMDateTimeAlertPicker: UIViewController {
         super.viewDidLoad()
     }
     
-    public func setDatePicker( minDate: Date? = nil, maxDate: Date? = nil, type: UIDatePicker.Mode = .dateAndTime, actionType: DatePickerActions = .setRemove, completion: @escaping completionHandler) {
+    public func setDatePicker( title: String? = nil, minDate: Date? = nil, maxDate: Date? = nil, type: UIDatePicker.Mode = .dateAndTime, actionType: DatePickerActions = .setRemove, completion: @escaping completionHandler) {
         
         let myDatePicker: UIDatePicker = UIDatePicker()
         let calendar = Calendar.current
@@ -38,10 +39,14 @@ public class EMDateTimeAlertPicker: UIViewController {
             myDatePicker.minimumDate = _maxDate
         }
         
+        if let _title = title {
+            self.topTitle = _title
+        }
+        
         myDatePicker.datePickerMode = type
         myDatePicker.frame = CGRect(x: 8, y: 16, width: 256, height: 200)
         
-        let alertController = UIAlertController(title: "Select Date\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "\(String(describing: topTitle))\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         alertController.view.addSubview(myDatePicker)
         
         
@@ -56,26 +61,30 @@ public class EMDateTimeAlertPicker: UIViewController {
             self.nanoseconds = calendar.component(.nanosecond, from: self.selectedDate)
             self.time = "\(self.hour ?? 00):\(self.minuts ?? 00):\(self.seconds ?? 00)"
             
-            self.dateModel = EMDateTime(date: self.selectedDate, time: self.time, hour: self.hour, minut: self.minuts, seconds: self.seconds, nanoseconds: self.nanoseconds)
+            //self.dateModel = EMDateTime(date: self.selectedDate, time: self.time, hour: self.hour, minut: self.minuts, seconds: self.seconds, nanoseconds: self.nanoseconds)
             
             print("Hour", self.hour)
             print("Minut", self.minuts)
             print("Seconds", self.seconds)
             print("Nanosec", self.nanoseconds)
-            print("ALL DATA", self.dateModel)
-            completion(self.dateModel, self.selectedDate, self.time, self.hour, self.minuts, self.seconds, self.nanoseconds)
+            //print("ALL DATA", self.dateModel)
+            completion(self.selectedDate, self.time, self.hour, self.minuts, self.seconds, self.nanoseconds)
             
         })
         
         let removeAction = UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
             print("Remove date")
-            completion(nil, nil, nil, nil, nil, nil, nil )
+            completion(nil, nil, nil, nil, nil, nil )
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alertController.addAction(selectAction)
+        
+        if actionType == .setRemove {
         alertController.addAction(removeAction)
+        }
+        
         alertController.addAction(cancelAction)
         
         print("EXCEPTION", rootController)
@@ -90,4 +99,4 @@ public enum DatePickerActions: String {
     case setRemove
 }
 
-public typealias completionHandler = (_ data: EMDateTime?, _ date: Date? , _ time: String?, _ hour: Int?, _ minut: Int?, _ seconds: Int?, _ nanoseconds: Int? ) -> ()
+public typealias completionHandler = (_ date: Date? , _ time: String?, _ hour: Int?, _ minut: Int?, _ seconds: Int?, _ nanoseconds: Int? ) -> ()
