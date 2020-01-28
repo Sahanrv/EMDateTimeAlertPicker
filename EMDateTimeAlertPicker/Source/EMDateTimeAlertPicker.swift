@@ -11,7 +11,7 @@ import UIKit
 
 public class EMDateTimeAlertPicker: UIViewController {
     
-    public var topTitle : String! = ""
+    var topTitle : String! = ""
     public var selectedDate : Date!
     public var hour : Int!
     public var minuts: Int!
@@ -27,7 +27,7 @@ public class EMDateTimeAlertPicker: UIViewController {
         super.viewDidLoad()
     }
     
-    public func setDatePicker( title: String? = nil, minDate: Date? = nil, maxDate: Date? = nil, type: UIDatePicker.Mode = .dateAndTime, actionType: DatePickerActions = .setRemove, completion: @escaping completionHandler) {
+    public func setDatePicker( title: String? = "Date Picker", minDate: Date? = nil, maxDate: Date? = nil, type: UIDatePicker.Mode = .dateAndTime, actionType: DatePickerActions = .setRemove, completion: @escaping completionHandler) {
         
         let myDatePicker: UIDatePicker = UIDatePicker()
         let calendar = Calendar.current
@@ -43,10 +43,12 @@ public class EMDateTimeAlertPicker: UIViewController {
             self.topTitle = _title
         }
         
+        
+        
         myDatePicker.datePickerMode = type
         myDatePicker.frame = CGRect(x: 8, y: 16, width: 256, height: 200)
         
-        let alertController = UIAlertController(title: "\(String(describing: topTitle))\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "\(topTitle ?? "")\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         alertController.view.addSubview(myDatePicker)
         
         

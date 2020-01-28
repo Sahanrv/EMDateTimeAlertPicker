@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "EMDateTimeAlertPicker"
-  spec.version      = "0.1.0"
+  spec.version      = "0.1.1"
   spec.summary      = "This is a sample Date "
   spec.description  = "EMDateTimeAlertPicker is a custom date time picker wich is intergrated with UIAlertView. It can customise by the user by changing the given attributes."
   spec.homepage     = "http://EXAMPLE/EMDateTimeAlertPicker"
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios
   spec.platform     = :ios, "9.0"
   
-  spec.source       = { :git => "https://github.com/Sahanrv/EMDateTimeAlertPicker.git", :tag => "0.1.0" }
+  spec.source       = { :git => "https://github.com/Sahanrv/EMDateTimeAlertPicker.git", :tag => "0.1.1" }
 
   spec.source_files  = "EMDateTimeAlertPicker/Source/*.{swift}", "EMDateTimeAlertPicker/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   # spec.public_header_files = "Classes/**/*.h"
 
 
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #s
   #
   #  A list of resources included with the Pod. These are copied into the
   #  target bundle with a build phase script. Anything else will be cleaned.
